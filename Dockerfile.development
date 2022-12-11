@@ -1,0 +1,14 @@
+FROM node:18-alpine AS base
+RUN npm install --global pnpm
+
+FROM base AS dependencies
+WORKDIR /usr/src/app
+COPY package.json .
+COPY pnpm-lock.yaml .
+RUN pnpm install
+
+FROM base AS development
+WORKDIR /usr/src/app
+COPY . .
+COPY --from=dependencies /usr/src/app/node_modules ./node_modules
+CMD ["pnpm","dev"]
