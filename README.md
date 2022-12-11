@@ -33,3 +33,5 @@ $ pnpm build
 ## Refs <a name = "refs"></a>
 
 - https://jimmyswebnote.com/create-nodejs-project-with-typescript/
+
+- https://jimmyswebnote.com/node-js-http-server/
