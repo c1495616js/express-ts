@@ -1,0 +1,59 @@
+version: '3.7'
+
+networks:
+  devnet:
+    name: devnet
+
+services:
+  pgAdmin:
+    restart: always
+    image: dpage/pgadmin4
+    ports:
+      - '8000:80'
+    environment:
+      PGADMIN_DEFAULT_EMAIL: dev_user@admin.com
+      PGADMIN_DEFAULT_PASSWORD: dev_pass
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    networks:
+      - devnet
+
+  postgres:
+    restart: always
+    image: postgres
+    container_name: 'postgres_container'
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: dev_user
+      POSTGRES_PASSWORD: dev_pass
+      POSTGRES_DB: dev_db
+    volumes:
+      - './postgres/data:/data/db'
+    networks:
+      - devnet
+  # mongo:
+  #   image: mongo
+  #   container_name: mongo
+  #   ports:
+  #     - 27017:27017
+  #   networks:
+  #     devnet:
+  #       aliases:
+  #         - mongo
+  api:
+    depends_on:
+      - postgres
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+    ports:
+      - '4000:4000'
+      - 9229:9229
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - devnet
+
+volumes:
+  pgadmin:
