@@ -16,7 +16,7 @@ class UserController {
   public initializeRoutes(): void {
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
     this.router.get(this.path, this.getUsers);
-    this.router.post(this.path, dtoValidationMiddleware(CreateUserDto, { value: 'body' }), this.createUser);
+    this.router.post(this.path, dtoValidationMiddleware(CreateUserDto), this.createUser);
   }
 
   public getUsers = async (req: Request, res: Response, next: NextFunction): Promise<void> => {

@@ -11,10 +11,8 @@ type Option = Partial<{
   forbidNonWhitelisted: boolean;
 }>;
 
-function dtoValidationMiddleware(
-  schema: new () => {},
-  { value = 'body', skipMissingProperties = false, whitelist = true, forbidNonWhitelisted = true }: Option
-): RequestHandler {
+function dtoValidationMiddleware(schema: new () => {}, option: Option = {}): RequestHandler {
+  const { value = 'body', skipMissingProperties = false, whitelist = true, forbidNonWhitelisted = true } = option;
   return async (req, _res, next) => {
     const dtoObj = plainToInstance(schema, req[value]);
     const errors: ValidationError[] = await validate(dtoObj, {
