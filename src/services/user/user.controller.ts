@@ -1,14 +1,10 @@
 import express, { Request, Response } from 'express';
 
-import { UserModal } from '.';
-
 class UserController {
   public path = '/user';
   public router = express.Router();
-  private readonly modal: UserModal;
 
   constructor() {
-    this.modal = new UserModal('users');
     this.initializeRoutes();
   }
 
@@ -18,8 +14,7 @@ class UserController {
   }
 
   getAll = async (request: Request, response: Response) => {
-    const users = await this.modal.select('*');
-    return response.json({ data: users?.rows });
+    return response.json({ data: [] });
   };
 }
 

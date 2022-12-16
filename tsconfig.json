@@ -11,11 +11,14 @@
     "rootDir": ".",
     "outDir": "dist",
     "sourceMap": true,
+    "experimentalDecorators": true, // required for Decorators
+    "emitDecoratorMetadata": true, // required for Decorators
     "baseUrl": "src",
     "paths": {
       "@/*": ["*"],
       "@config": ["config"],
-      "@databases": ["databases"],
+      "@services": ["services/*"],
+      "@db": ["db"],
       "@exceptions/*": ["exceptions/*"],
       "@interfaces/*": ["interfaces/*"],
       "@middlewares/*": ["middlewares/*"],

@@ -1,8 +1,8 @@
 import { join } from 'path';
-import { DataSourceOptions } from 'typeorm';
+import { DataSourceOptions, DataSource } from 'typeorm';
 import { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_DATABASE } from '@config';
 
-export const dbConnection: DataSourceOptions = {
+const dbConnection: DataSourceOptions = {
   type: 'postgres',
   host: DB_HOST,
   port: Number(DB_PORT),
@@ -15,3 +15,5 @@ export const dbConnection: DataSourceOptions = {
   migrations: [join(__dirname, '../**/*.migration{.ts,.js}')],
   subscribers: [join(__dirname, '../**/*.subscriber{.ts,.js}')],
 };
+
+export default new DataSource(dbConnection);
