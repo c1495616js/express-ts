@@ -4,10 +4,24 @@ import { validate, ValidationError } from 'class-validator';
 import { sanitize } from 'class-sanitizer';
 import { HttpException } from '@exceptions/index';
 
-function dtoValidationMiddleware(schema: new () => {}, skipMissingProperties = false): RequestHandler {
+type Option = Partial<{
+  value: 'body' | 'query' | 'params';
+  skipMissingProperties: boolean;
+  whitelist: boolean;
+  forbidNonWhitelisted: boolean;
+}>;
+
+function dtoValidationMiddleware(
+  schema: new () => {},
+  { value = 'body', skipMissingProperties = false, whitelist = true, forbidNonWhitelisted = true }: Option
+): RequestHandler {
   return async (req, _res, next) => {
-    const dtoObj = plainToInstance(schema, req.body);
-    const errors: ValidationError[] = await validate(dtoObj, { skipMissingProperties });
+    const dtoObj = plainToInstance(schema, req[value]);
+    const errors: ValidationError[] = await validate(dtoObj, {
+      skipMissingProperties,
+      whitelist,
+      forbidNonWhitelisted,
+    });
     if (errors.length > 0) {
       const dtoErrors = errors.map((error: ValidationError) => (Object as any).values(error.constraints)).join(', ');
       next(new HttpException(400, dtoErrors));
