@@ -9,8 +9,9 @@
     "build": "swc src -d dist --source-maps --copy-files",
     "build:tsc": "tsc && tsc-alias",
     "migrate": "",
-    "migrate:create": "pnpm migrate create $1",
-    "migrate:up": "pnpm migrate up"
+    "migrate:create": "typeorm migration:create",
+    "migrate:run": "typeorm-ts-node-commonjs migration:run -d src/db/index.ts",
+    "migrate:revert": "typeorm-ts-node-commonjs migration:revert -d src/db/index.ts"
   },
   "keywords": [],
   "author": "",

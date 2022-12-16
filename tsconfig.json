@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strictPropertyInitialization": false,
     "target": "es2020",
     "lib": ["es2020"],
     "module": "commonjs",
