@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "2e961663-7ae0-47bf-a7ab-b752732ec4ef",
+    "colId": "4b6675d9-fff6-4eb6-9e58-318a1cb7d7e1",
+    "containerId": "f0638ba0-05b2-49f9-a444-2d464f8d2987",
+    "name": "get all",
+    "url": "user",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-12-16T07:23:03.758Z",
+    "modified": "2022-12-16T07:23:08.659Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]

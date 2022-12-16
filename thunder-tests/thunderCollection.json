@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "4b6675d9-fff6-4eb6-9e58-318a1cb7d7e1",
+    "colName": "localhost",
+    "created": "2022-12-16T07:22:10.776Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "f0638ba0-05b2-49f9-a444-2d464f8d2987",
+        "name": "user",
+        "containerId": "",
+        "created": "2022-12-16T07:22:56.198Z",
+        "sortNum": 10000
+      }
+    ],
+    "settings": {
+      "headers": [],
+      "tests": [],
+      "options": {
+        "baseUrl": "http://localhost:4000/v1/"
+      }
+    }
+  }
+]

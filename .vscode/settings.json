@@ -1,10 +1,5 @@
 {
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
@@ -48,5 +43,6 @@
    * special for this blog setting.
    */
   "pasteImage.path": "${projectRoot}/public/images/${currentFileNameWithoutExt}",
-  "pasteImage.insertPattern": "![](/images/${currentFileNameWithoutExt}/${imageFileName})"
+  "pasteImage.insertPattern": "![](/images/${currentFileNameWithoutExt}/${imageFileName})",
+  "thunder-client.saveToWorkspace": true
 }
