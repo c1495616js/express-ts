@@ -8,9 +8,13 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-12-16T07:23:03.758Z",
-    "modified": "2022-12-16T07:23:08.659Z",
+    "modified": "2022-12-17T06:52:38.684Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNlZDg5NWM3LTUxMDItNDNiZC04NDI5LTdmNTA3ZTRlN2JjOSIsImlhdCI6MTY3MTI1OTc5OCwiZXhwIjoxNjcxMjYzMzk4fQ.KLvxvXTLXBdklfgTVRubKvoc0wi00ApLVRFTGRx_Cus"
+    },
     "tests": []
   },
   {

@@ -1,4 +1,4 @@
-import { dtoValidationMiddleware } from '@/middlewares';
+import { authMiddleware, dtoValidationMiddleware } from '@/middlewares';
 import express, { Request, Response, NextFunction } from 'express';
 import { BaseController } from '../common';
 import { CreateUserDto } from './user.dto';
@@ -13,7 +13,7 @@ class UserController extends BaseController {
   }
 
   public initializeRoutes(): void {
-    this.router.get(this.path, this.getUsers.bind(this));
+    this.router.get(this.path, authMiddleware, this.getUsers.bind(this));
     this.router.post(this.path, dtoValidationMiddleware(CreateUserDto), this.createUser.bind(this));
   }
 

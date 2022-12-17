@@ -8,6 +8,7 @@ import compression from 'compression';
 
 /** start --- custom middlewares */
 export { default as dtoValidationMiddleware } from './dto-validation.middleware';
+export { default as authMiddleware } from './auth.middleware';
 /** end --- */
 
 import { logger, stream } from '@utils/index';
