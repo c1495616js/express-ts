@@ -5,9 +5,10 @@ import { UserController } from '@/services/user';
 import middlewares from '@middlewares/index';
 import { logger } from '@utils/logger';
 import database from '@/db';
+import { AuthController } from './services/auth';
 
 const port = process.env.PORT != null ? Number(process.env.PORT) : 4000;
-const appInstance = new App({ controllers: [new UserController()], middlewares, port, database });
+const appInstance = new App({ controllers: [new UserController(), new AuthController()], middlewares, port, database });
 
 const server = http.createServer(appInstance.app);
 

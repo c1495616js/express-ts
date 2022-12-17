@@ -1,25 +1,23 @@
 import { dtoValidationMiddleware } from '@/middlewares';
 import express, { Request, Response, NextFunction } from 'express';
+import { BaseController } from '../common';
 import { CreateUserDto } from './user.dto';
 import UserService from './user.service';
 import { User } from './user.type';
 
-class UserController {
-  public path = '/user';
-  public router = express.Router();
+class UserController extends BaseController {
   public userService = new UserService();
 
   constructor() {
-    this.initializeRoutes();
+    super('/user');
   }
 
   public initializeRoutes(): void {
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
-    this.router.get(this.path, this.getUsers);
-    this.router.post(this.path, dtoValidationMiddleware(CreateUserDto), this.createUser);
+    this.router.get(this.path, this.getUsers.bind(this));
+    this.router.post(this.path, dtoValidationMiddleware(CreateUserDto), this.createUser.bind(this));
   }
 
-  public getUsers = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  public async getUsers(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const findAllUsersData: User[] = await this.userService.findAllUser();
 
@@ -27,9 +25,9 @@ class UserController {
     } catch (error) {
       next(error);
     }
-  };
+  }
 
-  public createUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  public async createUser(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const userData: CreateUserDto = req.body;
       const createUserData: User = await this.userService.createUser(userData);
@@ -38,7 +36,7 @@ class UserController {
     } catch (error) {
       next(error);
     }
-  };
+  }
 }
 
 export default UserController;

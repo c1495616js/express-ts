@@ -12,5 +12,43 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "dd146e69-1b8f-47a1-9ed0-e65a5164b4b6",
+    "colId": "4b6675d9-fff6-4eb6-9e58-318a1cb7d7e1",
+    "containerId": "ceeee996-bec8-424e-8c3d-13b86846f90e",
+    "name": "signup",
+    "url": "auth/signup",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-12-17T05:48:41.483Z",
+    "modified": "2022-12-17T05:50:49.110Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"xx@djfosdf.com\",\n  \"password\": \"hi\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3b9de527-959e-4cb4-a392-16f05420f724",
+    "colId": "4b6675d9-fff6-4eb6-9e58-318a1cb7d7e1",
+    "containerId": "f0638ba0-05b2-49f9-a444-2d464f8d2987",
+    "name": "create user",
+    "url": "user",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-12-17T06:07:42.260Z",
+    "modified": "2022-12-17T06:08:11.151Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"xx@djfosdf.com\",\n  \"password\": \"hi\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

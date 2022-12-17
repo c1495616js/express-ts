@@ -21,7 +21,6 @@
       "@services": ["services/*"],
       "@db": ["db"],
       "@exceptions/*": ["exceptions/*"],
-      "@interfaces/*": ["interfaces/*"],
       "@middlewares/*": ["middlewares/*"],
       "@utils/*": ["utils/*"]
     }
