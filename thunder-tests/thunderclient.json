@@ -50,5 +50,24 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "ec22f1a2-71a7-4d66-b000-331da6c3269a",
+    "colId": "4b6675d9-fff6-4eb6-9e58-318a1cb7d7e1",
+    "containerId": "ceeee996-bec8-424e-8c3d-13b86846f90e",
+    "name": "login",
+    "url": "auth/login",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2022-12-17T06:26:53.152Z",
+    "modified": "2022-12-17T06:28:04.588Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"xx@djfosdf.com\",\n  \"password\": \"hi\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
